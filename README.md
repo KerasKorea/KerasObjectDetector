@@ -17,7 +17,7 @@ The purpose of Keras Object Detection API is to make it easy and fast so that ev
 Detailed instructions for use will be updated at a later. You can look forward to it. 🤓
 
 ## Contents
-
+* [Directory Struct](#Directory-Struct)
 * [Installation](#Installation)
 * [Testing](#Testing)
 * [Usage](#Usage)
@@ -25,7 +25,40 @@ Detailed instructions for use will be updated at a later. You can look forward t
 * [Release information](#Release-information)
 * [Contributors](#Contributors)
 
-## Installation
+## Directory Struct
+```
+KerasObjectDetector
+├── README.md
+├── setup.py
+├── utils
+│   ├── image1.png
+│   ├── image2.jpeg
+│   ├── result_image.png
+│   ├── show_bbox.py
+│   ├── test.py
+```
+
+## Installation (In Linux)
+First, Install and set up Docker Environment in your computer or server. If you don't have Docker ID, You need to sign up in [Docker Hub](https://hub.docker.com/).
+```bash
+  //Typing your Docker Id, Password
+  docker login
+  
+  //Check docker version
+  docker --version
+```
+
+Next, [Download YOLK package](https://github.com/KerasKorea/KerasObjectDetector). And, Set up environment for working on YOLK.
+```bash
+  git clone https://github.com/KerasKorea/KerasObjectDetector.git
+  cd KerasObjectDetector
+
+  //If there is no 'setuptools' in docker, please download This package.
+  //pip install setuptools
+   
+  python setup.py
+  sh setup.sh
+```
 
 ## Testing
 
