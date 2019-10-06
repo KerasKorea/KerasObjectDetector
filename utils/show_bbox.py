@@ -1,8 +1,8 @@
 import PIL.Image as Image
 import PIL.ImageFont as ImageFont
 import PIL.ImageDraw as ImageDraw
-import numpy as np
-from random import randint
+import numpy as np 
+from random import randint 
 
 def draw_bounding_box_on_image(image, box, display_class, color, thickness=4, is_normalized=True):
 	"""
@@ -52,6 +52,17 @@ def draw_bounding_box_on_image(image, box, display_class, color, thickness=4, is
 	output_path = '.'
 	image.save('result_image.png')
 
+def make_color_arr_and_count_class(display_classes, color):
+	color_dic = {}
+	class_num = 0
+	for _class in display_classes:
+		if _class not in color_dic.keys():
+			color_dic[_class] = make_color_random()
+			class_num = class_num + 1
+		color.append(color_dic[_class])
+
+	return class_num
+
 
 def draw_bounding_boxes_on_image(image, boxes, display_classes=[], color=[], thickness=4, is_normalized=True):
 	"""
@@ -66,14 +77,10 @@ def draw_bounding_boxes_on_image(image, boxes, display_classes=[], color=[], thi
 	"""
 # image, box, color='red', display_class, thickness=4, is_normalized=True)
 
+	class_num = 0
 	# If user not give color array, automatically make
 	if color == []:
-		color_dic = {}
-		for _class in display_classes:
-			if _class not in color_dic.keys():
-				color_dic[_class] = make_color_random()
-			color.append(color_dic[_class])
-
+		class_num = make_color_arr_and_count_class(display_classes, color)
 	
 	for box, _color, _class in zip(boxes, color, display_classes):
 		print(box, _color, _class)
