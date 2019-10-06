@@ -20,6 +20,11 @@ def draw_bounding_box_on_image(image, box, display_class, color='red', thickness
 	
 	draw = ImageDraw.Draw(image)
 	im_width, im_height = image.size
+	
+	thk_multiply = 50
+	img_fraction = 0.05
+	while thk_multiply*thickness < img_fraction*image.size[0]:
+                thickness += 8
 
 	if is_normalized:
 		(left, right, top, bottom) = (xmin * im_width, xmax * im_width, ymin * im_height, ymax * im_height)
@@ -30,8 +35,8 @@ def draw_bounding_box_on_image(image, box, display_class, color='red', thickness
 
 	# font size
 	#font = ImageFont.load_default()
-	img_fraction = 0.05
-	font_path = '/Library/Fonts/Arial.ttf'
+	
+	font_path = 'C:\Windows\Fonts\Arial.ttf'
 	font = ImageFont.truetype(font_path, 24)
 	#font = ImageFont.truetype(fm.findfont(fm.FontProperties(family=combo.get())), 24)
 	fontsize = 1
@@ -39,6 +44,7 @@ def draw_bounding_box_on_image(image, box, display_class, color='red', thickness
 	while font.getsize(display_class)[0] < img_fraction*image.size[0]:
 		fontsize += 1
 		font = ImageFont.truetype(font_path, size=fontsize)
+
 
 	text_width, text_height = font.getsize(display_class)
 	margin = np.ceil(0.05 * text_height)
