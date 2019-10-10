@@ -9,12 +9,13 @@ __Object Detection__ is one of the most popular computer vision technologies in 
 There are several popular deep learning algorithms. __Faster R-CNN(2015)__, __YOLO(2015)__, __SSD(2015)__ and __RetinaNet(2017)__. In this tutorial, we will  __Faster R-CNN(2015)__ to learn what object detection is. 
 
 #### _What's Faster R-CNN?_
-[Faster R-CNN(2015)](https://arxiv.org/pdf/1506.01497.pdf) is one of the R-CNN models that extracts Region Proposals **used by Region Proposal Network(RPN)** and classifies them on the basis of CNN models. 
+[Faster R-CNN(2015)](https://arxiv.org/pdf/1506.01497.pdf) is one of the R-CNN models that extracts Region Proposals **used by Region Proposal Network** and classifies them on the basis of CNN models. 
 
 [model picture]()
 
-Before Faster R-CNN, region proposals were extracted using selvective serarch or edge boxes. However, These methods are slower than gpu computation and cause to occur bottleneck because they operate on cpu computation outside the CNN model.
+Before 'Faster R-CNN', Region proposals were extracted in raw image(R-CNN) or feature map(Fast R-CNN) using selvective serarch. However, This method is slower than gpu computation and cause to occur bottleneck because they operate on cpu computation outside the CNN model.
 
+In order to eliminate bottlenecks, 'Faster R-CNN' applied a CNN model(called **Region proposal network(RPN)**) to the algorithm to obtain region proposals. RPN takes as input a small window (3 X 3) of feature map passed by CNN model (just make feature map of raw image). Each window is mapped to a lower-dimensional feature(256 or 512). This feature is used 2 small networks. one is classifying object or none object, the other is regressing bbox locations.
 
 #### _What's Deepfashion2?_
 
