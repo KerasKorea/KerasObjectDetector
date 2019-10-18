@@ -1,7 +1,6 @@
 """
 Copyright 2017-2018 Fizyr (https://fizyr.com)
 """
-
 import argparse
 import os
 import sys
@@ -22,12 +21,13 @@ from ..utils.config import read_config_file, parse_anchor_parameters
 from ..utils.keras_version import check_keras_version
 from ..utils.transform import random_transform_generator
 from ..utils.image import random_visual_effect_generator
-# from ..preprocessing import download_coco, download_pascal
+from ..preprocessing.download import download_pascal
 
 def make_generators(batch_size=32, image_min_side=800, image_max_side=1333, preprocess_image=lambda x : x / 255.,
-                      random_transform=True, dataset_type='pascal'):
+                      random_transform=True, dataset_type='voc', vesion="2012"):
     """ Create generators for training and validation.
-    Args
+    Args/
+    
         args             : parseargs object containing configuration for generators.
         preprocess_image : Function that preprocesses an image for the network.
     """
@@ -72,13 +72,14 @@ def make_generators(batch_size=32, image_min_side=800, image_max_side=1333, prep
 
     # Dataset path 
 
-    dataset_path = "/Users/MAC/.yolk/datasets/"
+    dataset_path = os.path.join(os.path.expanduser("~"), ".yolk/datasets/")
 
     if dataset_type == 'coco':
         # import here to prevent unnecessary dependency on cocoapi
 
         if not os.path.exists(os.path.join(dataset_path, dataset_type)):
-            download_coco()
+            # download_coco()
+            pass
 
         from ..preprocessing.coco import CocoGenerator
 
@@ -96,10 +97,12 @@ def make_generators(batch_size=32, image_min_side=800, image_max_side=1333, prep
             shuffle_groups=False,
             **common_args
         )
-    elif dataset_type == 'pascal':
+
+    elif dataset_type == 'voc':
+    
         if not os.path.exists(os.path.join(dataset_path, dataset_type)):
-            # download_pascal()
-            pass
+            download_pascal()
+
         train_generator = PascalVocGenerator(
             os.path.join(dataset_path, dataset_type),
             'trainval',
