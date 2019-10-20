@@ -59,6 +59,11 @@ class ShapesConfig(Config):
     VALIDATION_STEPS = 5
 
 
+class InferenceConfig(ShapesConfig):
+    GPU_COUNT = 1
+    IMAGES_PER_GPU = 1
+
+
 class ShapesDataset(utils.Dataset):
     """Generates the shapes synthetic dataset. The dataset consists of simple
     shapes (triangles, squares, circles) placed randomly on a blank surface.
