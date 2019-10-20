@@ -80,11 +80,11 @@ def load_training_model(n_classes):
     model.load_weights(weights_path, by_name=True)
     return model
 
-def get_loss():
+def get_losses():
     ssd_loss = SSDLoss(neg_pos_ratio=3, alpha=1.0)
     return ssd_loss.compute_loss
 
-def preprocessing_image(img_path):
+def preprocess_image(img_path):
     orig_images = []
     input_images = []
     img_height, img_width = 300, 300
@@ -104,7 +104,7 @@ def lr_schedule(epoch):
     else:
         return 0.00001
 
-def setup_training(model, path):
+def get_data_generator(model, path):
     
 
     train_dataset = DataGenerator(load_images_into_memory=False, hdf5_dataset_path=None)

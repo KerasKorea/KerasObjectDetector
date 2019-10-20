@@ -6,15 +6,16 @@ def load_inference_model(path, *args):
 def load_training_model(num_classes, *args):
     return M.load_training_model(num_classes, *args)
 
-def preprocessing_image(image, *args):
-    return M.preprocessing_image(image, *args)
+def preprocess_image(image, *args):
+    return M.preprocess_image(image)
 
-def get_train_loader(args):
-    return 1#train_generator, validation_generator = M.create_generators()
+def get_data_generator(*args):
+    train_generator, callbacks, val_generator, val_steps = M.get_data_generator(*args)
+    return train_generator
 
 def prostprocessing_image(model_output, args):
     #bbox ,score ,~  = .prostprocessing_image(model_output)
     return 1#bbox ,score ,~ 
 
-def get_loss():
-    return M.get_loss()
+def get_losses(*args):
+    return M.get_losses(*args)
