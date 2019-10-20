@@ -1,14 +1,20 @@
 import sys, os
 sys.path.insert(0, os.path.abspath('..'))
-import yolk
 from PIL import Image
-
-# import miscellaneous modules
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np
+from yolk.parser import parse_args
+print("gg")
+import yolk
+print("gg22")
+yolk.parser.parse_args
 
-def main():
+def main(args=None):
+    if args is None:
+        args = sys.argv[1:]
+    
+    args = parse_args(args)
     image = np.asarray(Image.open('000000008021.jpg').convert('RGB'))
     image = image[:, :, ::-1].copy()
     image, scale = yolk.detector.preprocessing_image(image)
