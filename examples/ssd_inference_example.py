@@ -4,16 +4,22 @@ import numpy as np
 from keras.optimizers import SGD
 
 import yolk
+from yolk.parser import parse_args
 
-def main():
+def main(args=None):
+    if args is None:
+        args = sys.argv[1:]
+    
+    args = parse_args(args)
+
     # Load Sample Images
     img_path = './examples/000000008021.jpg'
-    image = yolk.detector.preprocess_image(img_path)
+    image = yolk.detector.preprocessing_image(img_path, args)
 
     # Generate Model including loss & sgd
     model_path = './VGG_VOC0712Plus_SSD_300x300_ft_iter_160000.h5'
-    model = yolk.detector.load_inference_model(model_path)
-    loss = yolk.detector.get_losses()
+    model = yolk.detector.load_inference_model(model_path, args)
+    loss = yolk.detector.get_losses(args)
     sgd = SGD(lr=0.001, momentum=0.9, decay=0.0, nesterov=False)
     model.compile(optimizer=sgd, loss=loss)
 

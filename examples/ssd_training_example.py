@@ -2,18 +2,24 @@ import sys, os
 sys.path.insert(0, os.path.abspath('./'))
 from keras.optimizers import SGD
 import yolk
-# from yolk.backend.ssd_backend import *
+from yolk.parser import parse_args
 
-def main():
+
+
+def main(args=None):
+    if args is None:
+        args = sys.argv[1:]
+    
+    args = parse_args(args)
+
     # Make a Model
-    model = yolk.detector.load_training_model(num_classes=20)
-    loss = yolk.detector.get_losses()
+    model = yolk.detector.load_training_model(20, args)
+    loss = yolk.detector.get_losses(args)
     sgd = SGD(lr=0.001, momentum=0.9, decay=0.0, nesterov=False)
     model.compile(optimizer=sgd, loss=loss)
 
     # Load Generators
-    dataset_path = "./datasets"
-    train_generator = yolk.detector.get_data_generator(model, dataset_path)
+    train_generator = yolk.detector.get_data_generator(args)
 
     # Train a Model
     initial_epoch   = 0
