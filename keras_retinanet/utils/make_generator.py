@@ -119,6 +119,11 @@ def make_generators(batch_size=32, image_min_side=800, image_max_side=1333, prep
 
 
 def make_generator_test():
+    """
+    Testing make_generator fucntion  
+
+    usage : python make_generator.py --test True
+    """
     train_gen, val_gen = make_generators()
 
     sample = train_gen[0]
