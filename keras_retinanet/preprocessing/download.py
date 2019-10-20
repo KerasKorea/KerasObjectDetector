@@ -156,5 +156,113 @@ def download_pascal(download_dir="~/VOCdevkit", overwrite=True, no_download=Fals
     os.symlink(path, _TARGET_DIR)
     print("Downloaded!!!")
 
+
+"""Prepare COCO datasets"""
+import sys
+import io
+import shutil
+import zipfile
+
+
+def config():
+    """
+    Configurate download urls and hash values
+        Parameters
+        ----------
+        Returns
+        ----------
+        dataset_path: 
+            path where datasets are to be downloaded
+        filenames: 
+            file names to be downloaded
+        urls: 
+            download urls
+        hashes: 
+            MD5 hashes of files to be downloaded
+    """
+    dataset_path = os.path.join(os.path.expanduser('~'), '.yolk/datasets/coco')
+    base_url = 'http://bit.ly/'
+    postfix_urls = [
+      	'yolk_coco_test2017_zip',
+       	'yolk_coco_train2017_zip',
+       	'yolk_coco_val2017_zip',
+        'yolk_coco_annotation2017_zip'
+    ]
+    urls = [base_url + x for x in postfix_urls]
+    image_filenames = [
+       	'test2017.zip',
+       	'train2017.zip',
+       	'val2017.zip'
+    ]
+    annotation_filenames = [
+        'annotations2017.zip'
+    ]
+    filenames = image_filenames + annotation_filenames
+    return dataset_path, filenames, urls
+
+
+"""
+Download and Extract COCO Dataset
+"""
+def download_coco():
+    dataset_path, filenames, urls = config()
+ 
+    # clean and make directory before download datasets
+    if os.path.exists(dataset_path):
+        shutil.rmtree(dataset_path)
+        os.makedirs(dataset_path)
+    else:
+        os.makedirs(dataset_path)
+    os.makedirs(os.path.join(dataset_path, 'images'))
+    os.makedirs(os.path.join(dataset_path, 'annotations'))
+
+    for filename, url in zip(filenames, urls):
+        filepath = os.path.join(dataset_path, filename)
+        with open(filepath, "wb") as file:
+            print("Downloading %s" % filepath)
+            response = requests.get(url, stream=True)
+            total_length = response.headers.get('content-length')
+            if total_length is None: # no content length header
+                file.write(response.content)
+            else:
+                # show download progress bar
+                dl = 0
+                total_length = int(total_length)
+                for data in response.iter_content(chunk_size=4096):
+                    dl += len(data)
+                    file.write(data)
+                    done = int(50 * dl / total_length)
+                    sys.stdout.write("\r[%s%s]" % ('=' * done, ' ' * (50-done)) )
+                print()
+        sub_dir = os.path.join(dataset_path, 'images')
+        if 'annotations' in filename:
+            sub_dir = os.path.join(dataset_path, 'annotations')
+        with zipfile.ZipFile(filepath, 'r') as zf:
+            zf.extractall(sub_dir)
+
+
+
+def getHash(filepath):
+    """
+    Check download files with origin files
+        Parameters
+        ----------
+        filepath: 
+            path of the file
+        Returns
+        ----------
+        hash value:
+            md5 hash value of the file
+    """
+    blocksize=65536
+    with open(filepath, "rb") as file:
+        hasher = hashlib.md5()
+        buf = file.read(blocksize)
+        while len(buf) > 0:
+            hasher.update(buf)
+            buf = file.read(blocksize)
+        return hasher.hexdigest()
+
+
 if __name__ == "__main__":
     pass
