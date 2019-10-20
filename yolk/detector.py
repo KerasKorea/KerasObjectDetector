@@ -5,3 +5,6 @@ def load_model(path, backbone='resnet50'):
 
 def preprocessing_image(image):
     return M.preprocess_image(image)
+
+def postprocessing_output(output, shape):
+    return M.postprocess_output(output, shape)
