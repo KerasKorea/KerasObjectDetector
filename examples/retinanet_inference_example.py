@@ -4,27 +4,29 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np
-from yolk.parser import parse_args
-print("gg")
 import yolk
-print("gg22")
-yolk.parser.parse_args
+from yolk.parser import parse_args
+
 
 def main(args=None):
     if args is None:
         args = sys.argv[1:]
     
     args = parse_args(args)
-    image = np.asarray(Image.open('000000008021.jpg').convert('RGB'))
-    image = image[:, :, ::-1].copy()
+
+    image = Image.open('./000000008021.jpg')
     image, scale = yolk.detector.preprocessing_image(image)
 
     model_path = os.path.join('..', 'resnet50_coco_best_v2.1.0.h5')
-    model = yolk.detector.load_model(model_path)
+    model = yolk.detector.load_inference_model(model_path, args)
 
-    boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
+    model_output = model.predict_on_batch(np.expand_dims(image, axis=0))
 
-    print(boxes)
+    print(model_output)
+    
+    #shape = image.shape
+    #boxes, scores, labels = yolk.detector.postprocessing(model_output, original_shape=image.shape, args)
+    #print(boxes)
     
 if __name__ == '__main__':
     main()

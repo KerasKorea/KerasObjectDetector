@@ -1,6 +1,5 @@
 import argparse
 
-import ArgumentParser
 def parse_args(args):
     """ Parse the arguments.
     """
