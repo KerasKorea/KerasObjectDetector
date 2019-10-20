@@ -15,17 +15,22 @@ There are several popular deep learning algorithms. __Faster R-CNN(2015)__, __YO
 </p>
 
 In the image above, the models marked by red showed excellent result at object detection field.
-Among those models, the reasons for selecting SSD in this tutorial are
+Among these models, the reasons for selecting SSD in this tutorial are
  - **Fast training** (SSD is 1 stage method and use convolution layer at `Extra Feature Layers`)
  - **Getting high detection accuracy** (SSD produce predictions of diffenrent scales from multiple scale feature maps)
 
-So, Let's look at the SSD model structure.
+So, This tutorial decide to use SSD model structure. Object detection need 3 essential factors that are `Input image data`, `Object class in input image` and `Offset(ex. x,y,w,h) of object`. Let's look at these factors and understand SSD.
 
 <p align="center">
     <img id="SSD model structure" width="500" height="270" src="./res/ssd_structure_img.JPG/"/>
 </p>
 
-First, Look at SSD structure image above. The SSD consists of VGG16 and Extra feature layers and uses input images(300 x 300 x 3). 
+First, The SSD basically consists of VGG16, which is pre-trained on the ILSVRC CLS-LOC datset, and Extra feature layers and uses input images(300 x 300 x 3). VGG16 part has base network only until conv4_3 and attached `extra feature layers` that give multi feature maps. In extra feature layers, 
+    1. 
+    2. 
+    3. 
+
+ 있는 각 피쳐맵은 객체 인식에 필요한 3 요소 값을 convolution 연산을 통해 알려준다. 여기서  
 
 
 #### _What Dataset use this tutorial?_
@@ -91,7 +96,7 @@ First, we use a Docker ([Ubuntu](https://docs.docker.com/install/linux/docker-ce
 ```python
     
 ```
-### 3) Let's Detect Obejcts!
+### 3) Let's to Detect Obejcts!
 ```python
 ```
 
