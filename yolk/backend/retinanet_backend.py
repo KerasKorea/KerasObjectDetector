@@ -96,7 +96,7 @@ def get_losses(args):
         'classification': losses.focal()
         }
 
-def create_generators(args):
+def get_data_generator(args):
 
     backbone = models.backbone(args.backbone)
     preprocess_image = backbone.preprocess_image
