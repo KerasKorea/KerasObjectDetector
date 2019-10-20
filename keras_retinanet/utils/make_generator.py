@@ -21,7 +21,7 @@ from ..utils.config import read_config_file, parse_anchor_parameters
 from ..utils.keras_version import check_keras_version
 from ..utils.transform import random_transform_generator
 from ..utils.image import random_visual_effect_generator
-from ..preprocessing.download import download_pascal
+from ..preprocessing.download import download_pascal, download_coco
 
 def make_generators(batch_size=32, image_min_side=800, image_max_side=1333, preprocess_image=lambda x : x / 255.,
                       random_transform=True, dataset_type='voc', vesion="2012"):
@@ -72,7 +72,7 @@ def make_generators(batch_size=32, image_min_side=800, image_max_side=1333, prep
         # import here to prevent unnecessary dependency on cocoapi
 
         if not os.path.exists(os.path.join(dataset_path, dataset_type)):
-            # download_coco()
+            download_coco()
             pass
 
         from ..preprocessing.coco import CocoGenerator
