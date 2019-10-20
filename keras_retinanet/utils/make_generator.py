@@ -31,13 +31,7 @@ def make_generators(batch_size=32, image_min_side=800, image_max_side=1333, prep
         args             : parseargs object containing configuration for generators.
         preprocess_image : Function that preprocesses an image for the network.
     """
-    # common_args = {
-    #     'batch_size'       : args.batch_size,
-    #     'config'           : args.config,
-    #     'image_min_side'   : args.image_min_side,
-    #     'image_max_side'   : args.image_max_side,
-    #     'preprocess_image' : preprocess_image,
-    # }
+
     common_args = {
         'batch_size'       : batch_size,
         'image_min_side'   : image_min_side,
@@ -123,5 +117,23 @@ def make_generators(batch_size=32, image_min_side=800, image_max_side=1333, prep
 
     return train_generator, validation_generator
 
+
+def make_generator_test():
+    train_gen, val_gen = make_generators()
+
+    sample = train_gen[0]
+
+    assert sample[0].shape[0] == sample[1][0].shape[0] 
+    print("generator created sucsessfully!")
+
+import argparse
+
 if __name__ == "__main__":
-    pass
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--test', type=bool, default=False, help='dataset directory on disk')
+    args = parser.parse_args()
+
+    if args.test:
+        make_generator_test()
+
+    
