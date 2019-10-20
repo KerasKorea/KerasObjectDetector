@@ -1,7 +1,5 @@
 import argparse
 
-#import ArgumentParser
-
 def check_args(parsed_args):
     """ Function to check for inherent contradictions within parsed arguments.
     For example, batch_size < num_gpus
