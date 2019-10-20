@@ -3,5 +3,5 @@ from .load_backend import load_inference_model
 from .load_backend import load_training_model
 from .load_backend import preprocess_image
 from .load_backend import get_losses
-from .load_backend import get_data_generator
+from .load_backend import create_generators
 

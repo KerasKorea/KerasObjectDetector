@@ -43,7 +43,7 @@ clip_boxes = False # Whether or not to clip the anchor boxes to lie entirely wit
 variances = [0.1, 0.1, 0.2, 0.2] # The variances by which the encoded target coordinates are divided as in the original implementation
 normalize_coords = True
 
-def load_inference_model(model_path):
+def load_inference_model(model_path, args):
     model = ssd_300(image_size=(img_height, img_width, img_channels),
                     n_classes=n_classes,
                     mode='inference',
@@ -61,7 +61,7 @@ def load_inference_model(model_path):
     model.load_weights(model_path, by_name=True)
     return model
 
-def load_training_model(n_classes):
+def load_training_model(n_classes, args):
     weights_path = './VGG_ILSVRC_16_layers_fc_reduced.h5'
     model = ssd_300(image_size=(img_height, img_width, img_channels),
                     n_classes=n_classes,
@@ -80,11 +80,11 @@ def load_training_model(n_classes):
     model.load_weights(weights_path, by_name=True)
     return model
 
-def get_losses():
+def get_losses(args):
     ssd_loss = SSDLoss(neg_pos_ratio=3, alpha=1.0)
     return ssd_loss.compute_loss
 
-def preprocess_image(img_path):
+def preprocess_image(img_path, args):
     orig_images = []
     input_images = []
     img_height, img_width = 300, 300
@@ -104,9 +104,10 @@ def lr_schedule(epoch):
     else:
         return 0.00001
 
-def get_data_generator(model, path):
+def create_generators(args):
+    model = args
+    path = "./datasets"
     
-
     train_dataset = DataGenerator(load_images_into_memory=False, hdf5_dataset_path=None)
     val_dataset = DataGenerator(load_images_into_memory=False, hdf5_dataset_path=None)
 
