@@ -1,9 +1,11 @@
 import sys, os
 sys.path.insert(0, os.path.abspath('..'))
 
+from PIL import Image
+from keras.preprocessing import image as keras_pre_image
 import keras_retinanet
 from keras_retinanet import models
-from keras_retinanet.utils.image import read_image_bgr, preprocess_image, resize_image
+import keras_retinanet.utils.image as retinanet_image 
 
 def load_model(model_path, backbone='resnet50'):
     model = models.load_model(model_path, backbone_name=backbone)
@@ -11,12 +13,15 @@ def load_model(model_path, backbone='resnet50'):
     return model
 
 def preprocess_image(image):
-    image = keras_retinanet.utils.image.preprocess_image(image)
-    image, scale = resize_image(image)
-    return image, scale
+    image = retinanet_image.preprocess_image(image)
+    image, scale = retinanet_image.resize_image(image)
+    return image
 
-def load_image(
-    path = None
+def load_N_preprocess_image(
+    image_path = None
 ):
-    image = keras_pre_image.img_to_array(Image.open(image_path).convert('RGB'))
-    return resize_image(image)[0]
+    loaded_image = keras_pre_image.img_to_array(Image.open(image_path).convert('RGB'))
+    preprocessed_image = retinanet_image.resize_image(preprocess_image(loaded_image))
+    return loaded_image, preprocessed_image
+
+    

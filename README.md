@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Keras Object Detection API
 
 ![Object](https://img.shields.io/badge/Object-Detector-Yellow.svg)
