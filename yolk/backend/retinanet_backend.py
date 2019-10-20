@@ -14,3 +14,9 @@ def preprocess_image(image):
     image = keras_retinanet.utils.image.preprocess_image(image)
     image, scale = resize_image(image)
     return image, scale
+
+def load_image(
+    path = None
+):
+    image = keras_pre_image.img_to_array(Image.open(image_path).convert('RGB'))
+    return resize_image(image)[0]
