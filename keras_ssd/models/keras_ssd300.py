@@ -23,10 +23,10 @@ from keras.layers import Input, Lambda, Activation, Conv2D, MaxPooling2D, ZeroPa
 from keras.regularizers import l2
 import keras.backend as K
 
-from keras_layers.keras_layer_AnchorBoxes import AnchorBoxes
-from keras_layers.keras_layer_L2Normalization import L2Normalization
-from keras_layers.keras_layer_DecodeDetections import DecodeDetections
-from keras_layers.keras_layer_DecodeDetectionsFast import DecodeDetectionsFast
+from keras_ssd.keras_layers.keras_layer_AnchorBoxes import AnchorBoxes
+from keras_ssd.keras_layers.keras_layer_L2Normalization import L2Normalization
+from keras_ssd.keras_layers.keras_layer_DecodeDetections import DecodeDetections
+from keras_ssd.keras_layers.keras_layer_DecodeDetectionsFast import DecodeDetectionsFast
 
 def ssd_300(image_size,
             n_classes,

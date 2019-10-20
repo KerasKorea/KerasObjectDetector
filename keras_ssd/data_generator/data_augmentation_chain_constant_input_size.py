@@ -19,9 +19,9 @@ limitations under the License.
 from __future__ import division
 import numpy as np
 
-from data_generator.object_detection_2d_photometric_ops import ConvertColor, ConvertDataType, ConvertTo3Channels, RandomBrightness, RandomContrast, RandomHue, RandomSaturation
-from data_generator.object_detection_2d_geometric_ops import RandomFlip, RandomTranslate, RandomScale
-from data_generator.object_detection_2d_image_boxes_validation_utils import BoundGenerator, BoxFilter, ImageValidator
+from keras_ssd.data_generator.object_detection_2d_photometric_ops import ConvertColor, ConvertDataType, ConvertTo3Channels, RandomBrightness, RandomContrast, RandomHue, RandomSaturation
+from keras_ssd.data_generator.object_detection_2d_geometric_ops import RandomFlip, RandomTranslate, RandomScale
+from keras_ssd.data_generator.object_detection_2d_image_boxes_validation_utils import BoundGenerator, BoxFilter, ImageValidator
 
 class DataAugmentationConstantInputSize:
     '''

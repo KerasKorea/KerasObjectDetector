@@ -21,11 +21,11 @@ from tqdm import trange
 from math import ceil
 import sys
 
-from data_generator.object_detection_2d_geometric_ops import Resize
-from data_generator.object_detection_2d_patch_sampling_ops import RandomPadFixedAR
-from data_generator.object_detection_2d_photometric_ops import ConvertTo3Channels
-from ssd_encoder_decoder.ssd_output_decoder import decode_detections
-from data_generator.object_detection_2d_misc_utils import apply_inverse_transforms
+from keras_ssd.data_generator.object_detection_2d_geometric_ops import Resize
+from keras_ssd.data_generator.object_detection_2d_patch_sampling_ops import RandomPadFixedAR
+from keras_ssd.data_generator.object_detection_2d_photometric_ops import ConvertTo3Channels
+from keras_ssd.ssd_encoder_decoder.ssd_output_decoder import decode_detections
+from keras_ssd.data_generator.object_detection_2d_misc_utils import apply_inverse_transforms
 
 def get_coco_category_maps(annotations_file):
     '''
