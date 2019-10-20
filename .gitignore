@@ -21,3 +21,10 @@ __pycache__/
 .coverage.*
 coverage.xml
 *.cover
+*.h5
+/.idea
+examples/result.jpg
+
+keras-yolo3/
+
+test.py
