@@ -20,22 +20,14 @@ Detailed instructions for use will be updated at a later. You can look forward t
 * [Directory Structure](#Directory-Structure)
 * [Installation](#Installation)
 * [Testing](#Testing)
-<<<<<<< HEAD
 * ~~[Training](#Training)~~
 * ~~[Usage](#Usage)~~
-=======
-* [Training](#Training)
-* [Usage](#Usage)
->>>>>>> ef208bb6ea843ab0b70842f851daeac477405f6f
 * [Dependencies](#Dependencies)
 * [Release information](#Release-information)
 * [Contributors](#Contributors)
 
 ## Directory Structure
-<<<<<<< HEAD
 <!--need to edit-->
-=======
->>>>>>> ef208bb6ea843ab0b70842f851daeac477405f6f
 ```
 KerasObjectDetector
 ├── README.md
@@ -52,16 +44,10 @@ KerasObjectDetector
 
 ## Installation (On Linux)
 
-<<<<<<< HEAD
 First, [Download YOLK API](https://github.com/KerasKorea/KerasObjectDetector) that help to set up development environment for working on object detection. Enter the following command in terminal.
 
 ```bash
   # Download YOLK API
-=======
-First, [Download YOLK package](https://github.com/KerasKorea/KerasObjectDetector). And, Set up development environment for working on YOLK. 터미널에서 밑의 명령어를 입력하시오
-
-```bash
->>>>>>> ef208bb6ea843ab0b70842f851daeac477405f6f
   $ git clone https://github.com/KerasKorea/KerasObjectDetector.git
   $ cd KerasObjectDetector
 
@@ -75,11 +61,7 @@ First, [Download YOLK package](https://github.com/KerasKorea/KerasObjectDetector
   $ python setup.py install
 ```
 
-<<<<<<< HEAD
 If you want to running on Docker, Get Docker Image we made and easily configure development environment.(Later, It will be upload on Docker Hub)
-=======
-If you want to use Docker, Get Docker Image we made and easily configure development environment.
->>>>>>> ef208bb6ea843ab0b70842f851daeac477405f6f
 
 ```bash
   # ./KerasObjectDetector
@@ -87,35 +69,11 @@ If you want to use Docker, Get Docker Image we made and easily configure develop
   # start yolk container
   $ docker start yolk
 ```
-<<<<<<< HEAD
-=======
-<!-- 이미지 다운로드-->
-```python
-  # 코드 형식 참고 - https://keras.io/applications/#fine-tune-inceptionv3-on-a-new-set-of-classes
-  import keras
-  import yolk
-
-  voc_train, voc_valid = yolk.datasets.pascal_voc07()
-
-  load_model = load_model(model_path, backbone_name='resnet50')
-
-  preds = model.predict_detection(x) # preds = (boxes, scores, labels)
-  # ㄴmodel.convert2pred_model() 
-  #   ㄴmodel.add(yolk.layers.yolo_predict_layer())
-  #     yolk.models.yolov3() 선언할 때 Sequential(name="yolov3") 해주고
-  #     여기에 맞춰서 각 모델에 맞는 convert_model() 함수 호출
-
-  # bbox 포함한 결과 plotting
-  plt = yolk.plotter(preds)
-  plt.plot()
-```
->>>>>>> ef208bb6ea843ab0b70842f851daeac477405f6f
 
 ## Testing
 <!-- used by inference -->
 You can test your image with YOLK API. Enter the following command in terminal.
 
-<<<<<<< HEAD
 ```bash
   # ./
   # python examples/retinanet_inference_example.py --filepath 000000008021.jpg
@@ -187,20 +145,3 @@ Finally, API that can detect multiple objects in keras has been completed!! Ther
 ## Contributors
 Thanks goes to these beautiful peaple (github ID) :
 [@fuzzythecat](), [@mijeongjeon](), [@tykimos](), [@SooDevv](), [@karl6885](), [김준영](), [@minus31](), [김형섭](), [최민영](), [@mike2ox](), [홍석주](), [박근표](), [박아정](), [@parkjh688](), [유원상](), [@simba328](), [@visionNoob](), [이혜리](), [임재곤](), [전지영](), [@ahracho]()
-=======
-## Training
-
-## Usage
-
-## Dependencies
-
-|Tool|Version|
-|---|---|
-|python|3.6|
-|tensorflow|1.14.0|
-|keras|2.3.0|
-
-## Release information
-
-## Contributors
->>>>>>> ef208bb6ea843ab0b70842f851daeac477405f6f
