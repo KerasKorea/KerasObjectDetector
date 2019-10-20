@@ -1,7 +1,5 @@
 import argparse
 
-#import ArgumentParser
-
 def check_args(parsed_args):
     """ Function to check for inherent contradictions within parsed arguments.
     For example, batch_size < num_gpus
@@ -14,11 +12,12 @@ def check_args(parsed_args):
         parsed_args
     """
 
-    if parsed_args.mode == 'train' and parsed_args.dataset == None:
-        raise ValueError(
-            "Dataset type should be specified in training mode."
-        )
-
+    if parsed_args.mode == 'train':
+        if parsed_args.dataset == None:
+            raise ValueError("Dataset type should be specified in training mode.")
+        elif parsed_args.datapath == None:
+            raise ValueError("Dataset path should be provided.")
+     
     if parsed_args.multi_gpu > 1 and parsed_args.batch_size < parsed_args.multi_gpu:
         raise ValueError(
             "Batch size ({}) must be equal to or higher than the number of GPUs ({})".format(parsed_args.batch_size,
@@ -43,11 +42,15 @@ def check_args(parsed_args):
 def parse_args(args):
     """
     Parse the arguments.
-    backbone-model train/test dataset-type
-    default:
-    - backbone-model : retina
-    - train/test : test
+    mandatory:
+        model: [str] retina / yolo / SSD
+    
+    optional:
+        --mode: [str] train / test (default)
+        --dataset: [str] coco / pascal / kitti / oid / csv (mandatory if it's training mode)
+        --datapath: [str] (mandatory in training mode)
     """
+    
     parser     = argparse.ArgumentParser(description='Simple training script for training a RetinaNet network.')
     
     # Select which backbone-model to use
