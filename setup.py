@@ -52,7 +52,7 @@ setuptools.setup(
     maintainer_email = 'keras.yolk@gmail.com',
     cmdclass         = {'build_ext': BuildExtension},
     packages         = setuptools.find_packages(),
-    install_requires = ['keras', 'keras-resnet==0.1.0', 'six', 'scipy', 'cython', 'Pillow', 'opencv-python', 'progressbar2', 'tqdm'],
+    install_requires = ['keras', 'keras-resnet==0.1.0', 'six', 'scipy', 'cython', 'pillow', 'progressbar2', 'tqdm', 'scikit-learn', 'opencv-python'],
     entry_points     = {
         'console_scripts': [
             'retinanet-train=keras_retinanet.bin.train:main',
