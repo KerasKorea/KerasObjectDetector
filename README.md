@@ -33,6 +33,7 @@ KerasObjectDetector
 ├── README.md
 ├── setup.py
 ├── setup.md
+├── docker files
 ├── datasets
 ├── utils
 │   ├── image1.png
@@ -136,12 +137,12 @@ _to be added later..._
 Finally, API that can detect multiple objects in keras has been completed!! There are still many things to supply, but we plan to continue to update. This release includes: 
 
 1. A three of object detetion model and a data generator that changes in a suitable data format for selected model. 
-    - Object Detection Models : [SSD](https://github.com/pierluigiferrari/ssd_keras), [YOLOv3](), [RetinaNet](https://github.com/fizyr/keras-retinanet)
-    - Dataset and data generator : [PASCAL VOC2012](), [COCO](), [Custom dataset]() <!--need to description-->
+    - Object Detection Models : [SSD](https://github.com/pierluigiferrari/ssd_keras), [YOLOv3](https://github.com/qqwweee/keras-yolo3), [RetinaNet](https://github.com/fizyr/keras-retinanet)
+    - Dataset and data generator : [PASCAL VOC2012](), [COCO](), [Custom dataset]()  <!--need to description-->
       ㄴ Yolk's dataset downloader is 3X faster than existing downloader.
 2. Docker files that help to set up easliy development environment.
 3. Easy & Detail Obejct Detection Tutorial (SSD+VOC2012)
 
 ## Contributors
 Thanks goes to these beautiful peaple (github ID) :
-[@fuzzythecat](), [@mijeongjeon](), [@tykimos](), [@SooDevv](), [@karl6885](), [김준영](), [@minus31](), [김형섭](), [최민영](), [@mike2ox](), [홍석주](), [박근표](), [박아정](), [@parkjh688](), [유원상](), [@simba328](), [@visionNoob](), [이혜리](), [임재곤](), [전지영](), [@ahracho]()
+[@fuzzythecat](https://github.com/fuzzythecat), [@mijeongjeon](https://github.com/mijeongjeon), [@tykimos](https://github.com/tykimos), [@SooDevv](https://github.com/SooDevv), [@karl6885](https://github.com/karl6885), [@EthanJYK](https://github.com/EthanJYK), [@minus31](https://github.com/minus31), [김형섭](), [최민영](), [@mike2ox](https://github.com/mike2ox), [홍석주](), [박근표](), [@aaajeong](https://github.com/aaajeong), [@parkjh688](https://github.com/parkjh688), [@Uwonsang](https://github.com/Uwonsang), [@simba328](https://github.com/simba328), [@visionNoob](https://github.com/visionNoob), [이혜리](), [임재곤](), [전지영](), [@ahracho](https://github.com/ahracho)
