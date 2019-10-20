@@ -119,9 +119,12 @@ _TARGET_DIR = os.path.expanduser('~/.yolk/datasets/voc')
 
 def download_voc(path, overwrite=False):
     _DOWNLOAD_URLS = [
-        ('http://bit.ly/yolk_voc_train_val2007_tar'),
-        ('http://bit.ly/yolk_voc_train_val2012_tar'),
-        ('http://bit.ly/yolk_voc_test2012_tar')]
+        ('http://bit.ly/yolk_voc_train_val2007_tar',
+        '34ed68851bce2a36e2a223fa52c661d592c66b3c'),
+        ('http://bit.ly/yolk_voc_train_val2012_tar',
+        '41a8d6e12baa5ab18ee7f8f8029b9e11805b4ef1'),
+        ('http://bit.ly/yolk_voc_test2012_tar',
+        '4e443f8a2eca6b1dac8a6c57641b67dd40621a49')]
     makedirs(path)
     for url, checksum in _DOWNLOAD_URLS:
         filename = download(url, path=path, overwrite=overwrite, sha1_hash=checksum)
