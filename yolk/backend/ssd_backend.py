@@ -1,5 +1,9 @@
+from imageio import imread
+import numpy as np
+
 import keras_ssd
 from keras import models
+from keras.preprocessing import image
 
 from keras_ssd.keras_loss_function.keras_ssd_loss import SSDLoss
 from keras_ssd.keras_layers.keras_layer_AnchorBoxes import AnchorBoxes
@@ -13,4 +17,16 @@ def load_model(model_path):
                                                           'DecodeDetections': DecodeDetections,
                                                           'compute_loss': ssd_loss.compute_loss})
     return model
-    
+
+def preprocess_image(img_path):
+    orig_images = []
+    input_images = []
+    img_height, img_width = 300, 300
+
+    orig_images.append(imread(img_path))
+    img = image.load_img(img_path, target_size=(img_height, img_width))
+    img = image.img_to_array(img)
+    input_images.append(img)
+    input_images = np.array(input_images)
+
+    return input_images
