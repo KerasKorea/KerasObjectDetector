@@ -104,7 +104,7 @@ def lr_schedule(epoch):
     else:
         return 0.00001
 
-def create_generators(args):
+def get_data_generator(args):
     model = args
     path = "./datasets"
     
