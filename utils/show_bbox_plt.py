@@ -3,13 +3,16 @@ import matplotlib.pyplot as plt
 
 def draw_bounding_boxes_on_images(images, results, class_info, thresold=0.6):
 	for i, img in enumerate(images):
+		result = results[i]
+		print(np.shape(result))
+		print(result)
 		# Parse the outputs. each result contains many boxes.
-		det_label = results[i][:, 0]
-		det_conf = results[i][:, 1]
-		det_xmin = results[i][:, 2]
-		det_ymin = results[i][:, 3]
-		det_xmax = results[i][:, 4]
-		det_ymax = results[i][:, 5] 
+		det_label = result[0][:, 0]
+		det_conf = result[0][:, 1]
+		det_xmin = result[0][:, 2]
+		det_ymin = result[0][:, 3]
+		det_xmax = result[0][:, 4]
+		det_ymax = result[0][:, 5] 
 
 		# Get detections with confidence higher than thresold <- probability
 		top_indices = [i for i, conf in enumerate(det_conf) if conf >= thresold]
@@ -40,4 +43,5 @@ def draw_bounding_boxes_on_images(images, results, class_info, thresold=0.6):
 			currentAxis.add_patch(plt.Rectangle(*coords, fill=False, edgecolor=color, linewidth=2))
 			currentAxis.text(xmin, ymin, display_txt, bbox={'facecolor':color, 'alpha':0.5}) 
 			
-		plt.savefig('result_plt.png')
+		plt.savefig('result_plt{0}.png'.format(i))
+		plt.clf()
