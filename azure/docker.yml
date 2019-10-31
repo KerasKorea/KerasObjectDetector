@@ -17,3 +17,8 @@ jobs:
       repository: kerasyolk/yolk
       command: build
       Dockerfile: docker/Dockerfile
+
+  - task: Docker@2
+    displayName: List current images
+    inputs:
+      command: images

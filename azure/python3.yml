@@ -24,7 +24,7 @@ jobs:
       pip install protobuf
       pip install numpy>=1.14
       pip install opencv-python>=3.3.0 pillow
-      pip install cython
+      pip install cython>=0.28
       pip install pycocotools
       pip install tensorflow
       pip install keras>=2.2.3
@@ -32,6 +32,13 @@ jobs:
     displayName: 'Install PIP'
 
   - script: |
+      pip install . 
+    displayName: 'Install with setup.py'
+
+  - script: |
+      pip install imutils
       pip install pytest pytest-azurepipelines pytest-asyncio
-      # pytest
+      pytest
     displayName: 'PyTest'
+    # allow failure until import issues are fixed
+    continueOnError: true 
