@@ -33,7 +33,6 @@ class BuildExtension(setuptools.Command):
     def run(self, *args, **kwargs):
         return self._command.run(*args, **kwargs)
 
-
 extensions = [
     Extension(
         'keras_retinanet.utils.compute_overlap',
@@ -43,17 +42,17 @@ extensions = [
 
 
 setuptools.setup(
-    name             = 'keras-retinanet',
-    version          = '0.5.1',
-    description      = 'Keras implementation of RetinaNet object detection.',
-    url              = 'https://github.com/fizyr/keras-retinanet',
-    author           = 'Hans Gaiser',
-    author_email     = 'h.gaiser@fizyr.com',
-    maintainer       = 'Hans Gaiser',
-    maintainer_email = 'h.gaiser@fizyr.com',
+    name             = 'yolk',
+    version          = '0.0.1',
+    description      = 'Keras API for object detection.',
+    url              = 'https://github.com/KerasKorea/KerasObjectDetector',
+    author           = 'KerasKorea',
+    author_email     = 'keras.yolk@gmail.com',
+    maintainer       = 'KerasKorea',
+    maintainer_email = 'keras.yolk@gmail.com',
     cmdclass         = {'build_ext': BuildExtension},
     packages         = setuptools.find_packages(),
-    install_requires = ['keras', 'keras-resnet==0.1.0', 'six', 'scipy', 'cython', 'Pillow', 'opencv-python', 'progressbar2'],
+    install_requires = ['keras', 'keras-resnet==0.1.0', 'six', 'scipy', 'cython', 'pillow', 'progressbar2', 'tqdm', 'scikit-learn', 'opencv-python'],
     entry_points     = {
         'console_scripts': [
             'retinanet-train=keras_retinanet.bin.train:main',
