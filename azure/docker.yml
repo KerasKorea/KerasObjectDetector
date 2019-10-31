@@ -1,0 +1,19 @@
+#
+# References
+#   https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/containers/build-image
+#
+
+jobs:
+- job: Docker
+  pool:
+    vmImage: 'ubuntu-latest'
+  variables:
+    DOCKER_BUILDKIT: 1
+
+  steps:
+  - task: Docker@2
+    displayName: Build an image
+    inputs:
+      repository: kerasyolk/yolk
+      command: build
+      Dockerfile: docker/Dockerfile

@@ -1,0 +1,37 @@
+#
+# References
+#   https://docs.microsoft.com/azure/devops/pipelines/languages/python
+#
+
+jobs:
+- job: ${{ parameters.jobname }}
+  pool:
+    vmImage: ${{ parameters.vmimage }}
+
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: ${{ parameters.python }}
+    displayName: 'Use Python ${{ parameters.python }}'
+
+  - script: |
+      sudo apt-get install -y libsm6 libxext6 libxrender-dev
+    displayName: 'Install APT'
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install setuptools>=41.0.0
+      pip install protobuf
+      pip install numpy>=1.14
+      pip install opencv-python>=3.3.0 pillow
+      pip install cython
+      pip install pycocotools
+      pip install tensorflow
+      pip install keras>=2.2.3
+      pip install -r requirements.txt
+    displayName: 'Install PIP'
+
+  - script: |
+      pip install pytest pytest-azurepipelines pytest-asyncio
+      # pytest
+    displayName: 'PyTest'
