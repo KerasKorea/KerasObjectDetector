@@ -1,6 +1,6 @@
 # Let's Detect Obejcts by Keras API
 
-## Introduction
+## 1. Introduction
 
 <p align="center">
     <img id="object detection" width="500" height="270" src = "https://upload.wikimedia.org/wikipedia/commons/3/38/Detected-with-YOLO--Schreibtisch-mit-Objekten.jpg"></p>
@@ -8,27 +8,27 @@
 __Object Detection__ is one of the most popular computer vision technologies in many areas.(Face detection, Self-driving car etc) Recently, __Deep Learning__ technology has greatly influenced the Object Detection field, such as accuracy, performance improvement.
 There are several popular deep learning algorithms. __Faster R-CNN(2015)__, __YOLO (2015)__, __SSD(2016)__ and __RetinaNet(2017)__. In this tutorial, we will  __SSD(2016)__ to learn what object detection is. 
 
-#### _Why and what is SSD (Single Shot MultiBox Dectector)?_
+#### a) _Why and what is SSD (Single Shot MultiBox Dectector)?_
 
 <p align="center">
     <img id="Object Dectection Model Flow" width="500" height="270" src="https://raw.githubusercontent.com/hoya012/deep_learning_object_detection/master/assets/deep_learning_object_detection_history.PNG"/>
 </p>
 
 In the image above, the models marked by red showed excellent result at object detection field.
-Among those models, the reasons for selecting SSD in this tutorial are
+Among these models, the reasons for selecting SSD are
  - **Fast training** (SSD is 1 stage method and use convolution layer at `Extra Feature Layers`)
  - **Getting high detection accuracy** (SSD produce predictions of diffenrent scales from multiple scale feature maps)
 
-So, Let's look at the SSD model structure.
+So, This tutorial use SSD model structure. Object detection need 3 essential factors that are `Input image data`, `Object class in input image` and `Offset(ex. x,y,w,h) of object`. Let's look at these factors and understand SSD.
 
 <p align="center">
     <img id="SSD model structure" width="500" height="270" src="./res/ssd_structure_img.JPG/"/>
 </p>
 
-First, Look at SSD structure image above. The SSD consists of VGG16 and Extra feature layers and uses input images(300 x 300 x 3). 
+First, The SSD basically consists of VGG16, which is pre-trained on the ILSVRC CLS-LOC datset, and `Extra Feature Layers` and uses input images(300 x 300 x 3). VGG16 part has base network only until `conv4_3` and attached extra feature layers that give multi-feature maps. 
 
 
-#### _What Dataset use this tutorial?_
+#### b) _What Dataset use this tutorial?_
 
 <p align="center">
     <img width="510" height="276" src = "./res/pascal_2012_img.JPG"/>
@@ -37,7 +37,7 @@ First, Look at SSD structure image above. The SSD consists of VGG16 and Extra fe
  In fact, many object detection tutorials use famous dataset such as [COCO](http://cocodataset.org/), [VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) etc. Among them, we decided to use VOC2012.  
  <!--insert voc2012 description-->
 
-## Setting up Environments
+## 2. Setting up Environments
 In order to running this tutorial(object detection based on deep learning), many development packages and environment settings are needed. **BUT, DON'T WORRY.** In this tutorial, you can easily set up a development environment on your computer or server using a docker. **Just follow this tutorial.**
 
 First, we use a Docker ([Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [windows](https://docs.docker.com/docker-for-windows/)) to set up the developments environments required for deep learning development. Docker is a powerful tool, but if your computer already has some development environment, please match the package version written on the [README.md](). Then, See below.
@@ -53,9 +53,7 @@ First, we use a Docker ([Ubuntu](https://docs.docker.com/install/linux/docker-ce
     $ jupyter-notebook
 ```
 
-
-
-## Explain Tutorial Code
+## 3. Explain Tutorial Code
 
 ```python
     import keras
@@ -81,18 +79,18 @@ First, we use a Docker ([Ubuntu](https://docs.docker.com/install/linux/docker-ce
     )
 ```
 
-### 1) Download dataset & model
+#### a) _Download dataset & model_
 ```python
     
 ```
 
-### 2) Loading pre-trained model & dataset
+#### b) _Loading pre-trained model & dataset_
 
 ```python
     
 ```
-### 3) Let's Detect Obejcts!
+#### c) _Let's to Detect Obejcts!_
 ```python
 ```
 
-### 4) Result
+#### d) _Result_
