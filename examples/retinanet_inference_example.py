@@ -7,7 +7,6 @@ import numpy as np
 import yolk
 from yolk.parser import parse_args
 
-
 def main(args=None):
     if args is None:
         args = sys.argv[1:]
