@@ -76,12 +76,9 @@ If you want to running on Docker, Get Docker Image we made and easily configure 
   $ jupyter-notebook
 ```
 
-## Tutorial
-<!-- used by inference -->
-You can test your image with YOLK API. Go to the [Tutorial](https://github.com/KerasKorea/KerasObjectDetector/Object_detection_tutorial_by_keras_API.md) :)
-
 ## Quick Start
-_to be added later..._
+<!-- used by inference -->
+You can test your image a [Quick Start](https://github.com/KerasKorea/KerasObjectDetector/blob/develop/SSD_inference.ipynb) :)
 
 ## Dependencies
 |Name|Version(Min)|
@@ -90,15 +87,15 @@ _to be added later..._
 |Keras|2.3.0|
 |Python|3.6|
 |Numpy|1.14|
-|Matplotlib||
+|Matplotlib|latest|
 |SciPy|0.14|
-|h5py||
-|Pillow||
-|progressbar2||
+|h5py|latest|
+|Pillow|latest|
+|progressbar2|latest|
 |opencv-python|3.3.0|
 |six|1.9.0|
-|PyYAML||
-|Cython||
+|PyYAML|latest|
+|Cython|latest|
 
 ## Release information
 #### ver 1.0.0 (November 20, 2019) 
@@ -113,4 +110,4 @@ Finally, API that can detect multiple objects in keras has been completed!! Ther
 
 ## Contributors
 Thanks goes to these beautiful peaple (github ID) :
-[@fuzzythecat](https://github.com/fuzzythecat), [@mijeongjeon](https://github.com/mijeongjeon), [@tykimos](https://github.com/tykimos), [@SooDevv](https://github.com/SooDevv), [@karl6885](https://github.com/karl6885), [@EthanJYK](https://github.com/EthanJYK), [@minus31](https://github.com/minus31), [김형섭](), [최민영](), [@mike2ox](https://github.com/mike2ox), [@hngskj](https://github.com/hngskj), [@hics33](https://github.com/hics33), [@aaajeong](https://github.com/aaajeong), [@parkjh688](https://github.com/parkjh688), [@Uwonsang](https://github.com/Uwonsang), [@simba328](https://github.com/simba328), [@visionNoob](https://github.com/visionNoob), [이혜리](), [@melonicedlatte](https://github.com/melonicedlatte), [전지영](), [@ahracho](https://github.com/ahracho)
+[@fuzzythecat](https://github.com/fuzzythecat), [@mijeongjeon](https://github.com/mijeongjeon), [@tykimos](https://github.com/tykimos), [@SooDevv](https://github.com/SooDevv), [@karl6885](https://github.com/karl6885), [@EthanJYK](https://github.com/EthanJYK), [@minus31](https://github.com/minus31), [@young917](https://github.com/young917), [@mike2ox](https://github.com/mike2ox), [@hngskj](https://github.com/hngskj), [@hics33](https://github.com/hics33), [@aaajeong](https://github.com/aaajeong), [@parkjh688](https://github.com/parkjh688), [@Uwonsang](https://github.com/Uwonsang), [@simba328](https://github.com/simba328), [@visionNoob](https://github.com/visionNoob), [@Naruu](https://github.com/Naruu), [@melonicedlatte](https://github.com/melonicedlatte), [@magh0](https://github.com/magh0), [@ahracho](https://github.com/ahracho)
