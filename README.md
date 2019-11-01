@@ -21,13 +21,12 @@ Detailed instructions for use will be updated at a later. You can look forward t
 ## Contents
 * [Directory Structure](##Directory-Structure)
 * [Installation](##Installation)
-* [Tutorial](##Tutorial)
 * [Quick Start](##Quick-Start)
 * [Dependencies](##Dependencies)
 * [Release information](##Release-information)
 * [Contributors](##Contributors)
 
-## Directory Structure
+## <a name="Directory Structure">Directory Structure</a> 
 <!--need to edit-->
 ```
 KerasObjectDetector
@@ -44,8 +43,7 @@ KerasObjectDetector
 │   ├── test.py...
 ```
 
-## Installation (On Linux)
-
+## <a name="Installation">Installation (On Linux)</a> 
 First, [Download YOLK API](https://github.com/KerasKorea/KerasObjectDetector) that help to set up development environment for working on object detection. Enter the following command in terminal.
 
 ```bash
@@ -76,11 +74,11 @@ If you want to running on Docker, Get Docker Image we made and easily configure 
   $ jupyter-notebook
 ```
 
-## Quick Start
+## <a name="Quick-Start">Quick Start</a> 
 <!-- used by inference -->
 You can test your image a [Quick Start](https://github.com/KerasKorea/KerasObjectDetector/blob/develop/SSD_inference.ipynb) :)
 
-## Dependencies
+## <a name="Dependencies">Dependencies</a> 
 |Name|Version(Min)|
 |---|---|
 |Tensorflow|1.14.0|
@@ -97,7 +95,7 @@ You can test your image a [Quick Start](https://github.com/KerasKorea/KerasObjec
 |PyYAML|latest|
 |Cython|latest|
 
-## Release information
+## <a name="Release-information">Release information</a> 
 #### ver 1.0.0 (November 20, 2019) 
 Finally, API that can detect multiple objects in keras has been completed!! There are still many things to supply, but we plan to continue to update. This release includes: 
 
@@ -108,6 +106,6 @@ Finally, API that can detect multiple objects in keras has been completed!! Ther
 2. Docker files that help to set up easliy development environment.
 3. Easy & Detail Obejct Detection Tutorial (SSD+VOC2012)
 
-## Contributors
+## <a name="Contributors">Contributors</a> 
 Thanks goes to these beautiful peaple (github ID) :
 [@fuzzythecat](https://github.com/fuzzythecat), [@mijeongjeon](https://github.com/mijeongjeon), [@tykimos](https://github.com/tykimos), [@SooDevv](https://github.com/SooDevv), [@karl6885](https://github.com/karl6885), [@EthanJYK](https://github.com/EthanJYK), [@minus31](https://github.com/minus31), [@young917](https://github.com/young917), [@mike2ox](https://github.com/mike2ox), [@hngskj](https://github.com/hngskj), [@hics33](https://github.com/hics33), [@aaajeong](https://github.com/aaajeong), [@parkjh688](https://github.com/parkjh688), [@Uwonsang](https://github.com/Uwonsang), [@simba328](https://github.com/simba328), [@visionNoob](https://github.com/visionNoob), [@Naruu](https://github.com/Naruu), [@melonicedlatte](https://github.com/melonicedlatte), [@magh0](https://github.com/magh0), [@ahracho](https://github.com/ahracho)
