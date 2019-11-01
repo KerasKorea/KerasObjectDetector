@@ -19,33 +19,41 @@ The purpose of Keras Object Detection API is to make it easy and fast so that ev
 Detailed instructions for use will be updated at a later. You can look forward to it. 🤓
 
 ## Contents
-* [Directory Structure](##Directory-Structure)
-* [Installation](##Installation)
-* [Tutorial](##Tutorial)
-* [Quick Start](##Quick-Start)
-* [Dependencies](##Dependencies)
-* [Release information](##Release-information)
-* [Contributors](##Contributors)
+* [Directory Structure](#Directory-Structure)
+* [Installation](#Installation)
+* [Quick Start](#Quick-Start)
+* [Dependencies](#Dependencies)
+* [Release information](#Release-information)
+* [Contributors](#Contributors)
 
-## Directory Structure
+## <a name="Directory Structure">Directory Structure</a> 
 <!--need to edit-->
 ```
 KerasObjectDetector
-├── README.md
-├── setup.py
-├── setup.md
-├── docker files
 ├── datasets
-├── utils
-│   ├── image1.png
-│   ├── image2.jpeg
-│   ├── result_image.png
-│   ├── show_bbox.py
-│   ├── test.py...
+├── docker
+├── examples
+│   ├── ResNet50RetinaNet
+│   ├── YOLOv3_Prediction
+│   ├── YOLOv3_Training
+│   ├── retinanet_inference_example
+│   ├── retinanet_training_example
+│   ├── ssd_inference_example
+│   └── ssd_training_example
+├── keras_retinanet
+├── keras_ssd
+├── keras_yolov3
+├── res
+├── tests
+├── yolk
+├── .gitignore
+├── LICENSE
+├── README.md
+├── setup.cfg
+├── setup.py
 ```
 
-## Installation (On Linux)
-
+## <a name="Installation">Installation (On Linux)</a> 
 First, [Download YOLK API](https://github.com/KerasKorea/KerasObjectDetector) that help to set up development environment for working on object detection. Enter the following command in terminal.
 
 ```bash
@@ -76,14 +84,11 @@ If you want to running on Docker, Download Docker Image, which we made, from Doc
   $ jupyter-notebook
 ```
 
-## Tutorial
+## <a name="Quick-Start">Quick Start</a> 
 <!-- used by inference -->
-You can test your image with YOLK API. Go to the [Tutorial](https://github.com/KerasKorea/KerasObjectDetector/Object_detection_tutorial_by_keras_API.md) :smiley:
+You can test your image a [Quick Start](https://github.com/KerasKorea/KerasObjectDetector/blob/develop/SSD_inference.ipynb) :)
 
-## Quick Start
-_to be added later..._
-
-## Dependencies
+## <a name="Dependencies">Dependencies</a> 
 |Name|Version(Min)|
 |---|---|
 |Tensorflow|1.14.0|
@@ -100,7 +105,7 @@ _to be added later..._
 |PyYAML|latest|
 |Cython|latest|
 
-## Release information
+## <a name="Release-information">Release information</a> 
 #### ver 1.0.0 (November 20, 2019) 
 Finally, API that can detect multiple objects in keras has been completed!! There are still many things to supply, but we plan to continue to update. This release includes: 
 
@@ -111,6 +116,6 @@ Finally, API that can detect multiple objects in keras has been completed!! Ther
 2. Docker files that help to set up easliy development environment.
 3. Easy & Detail Obejct Detection Tutorial (SSD+VOC2012)
 
-## Contributors
+## <a name="Contributors">Contributors</a> 
 Thanks goes to these beautiful peaple (github ID) :
-[@fuzzythecat](https://github.com/fuzzythecat), [@mijeongjeon](https://github.com/mijeongjeon), [@tykimos](https://github.com/tykimos), [@SooDevv](https://github.com/SooDevv), [@karl6885](https://github.com/karl6885), [@EthanJYK](https://github.com/EthanJYK), [@minus31](https://github.com/minus31), [김형섭](), [최민영](), [@mike2ox](https://github.com/mike2ox), [@hngskj](https://github.com/hngskj), [@hics33](https://github.com/hics33), [@aaajeong](https://github.com/aaajeong), [@parkjh688](https://github.com/parkjh688), [@Uwonsang](https://github.com/Uwonsang), [@simba328](https://github.com/simba328), [@visionNoob](https://github.com/visionNoob), [이혜리](), [@melonicedlatte](https://github.com/melonicedlatte), [전지영](), [@ahracho](https://github.com/ahracho)
+[@fuzzythecat](https://github.com/fuzzythecat), [@mijeongjeon](https://github.com/mijeongjeon), [@tykimos](https://github.com/tykimos), [@SooDevv](https://github.com/SooDevv), [@karl6885](https://github.com/karl6885), [@EthanJYK](https://github.com/EthanJYK), [@minus31](https://github.com/minus31), [@young917](https://github.com/young917), [@mike2ox](https://github.com/mike2ox), [@hngskj](https://github.com/hngskj), [@hics33](https://github.com/hics33), [@aaajeong](https://github.com/aaajeong), [@parkjh688](https://github.com/parkjh688), [@Uwonsang](https://github.com/Uwonsang), [@simba328](https://github.com/simba328), [@visionNoob](https://github.com/visionNoob), [@Naruu](https://github.com/Naruu), [@melonicedlatte](https://github.com/melonicedlatte), [@magh0](https://github.com/magh0), [@ahracho](https://github.com/ahracho)
