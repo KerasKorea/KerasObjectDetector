@@ -21,7 +21,6 @@ Detailed instructions for use will be updated at a later. You can look forward t
 ## Contents
 * [Directory Structure](##Directory-Structure)
 * [Installation](##Installation)
-* [Tutorial](##Tutorial)
 * [Quick Start](##Quick-Start)
 * [Dependencies](##Dependencies)
 * [Release information](##Release-information)
@@ -31,17 +30,27 @@ Detailed instructions for use will be updated at a later. You can look forward t
 <!--need to edit-->
 ```
 KerasObjectDetector
-├── README.md
-├── setup.py
-├── setup.md
-├── docker files
 ├── datasets
-├── utils
-│   ├── image1.png
-│   ├── image2.jpeg
-│   ├── result_image.png
-│   ├── show_bbox.py
-│   ├── test.py...
+├── docker
+├── examples
+│   ├── ResNet50RetinaNet
+│   ├── YOLOv3_Prediction
+│   ├── YOLOv3_Training
+│   ├── retinanet_inference_example
+│   ├── retinanet_training_example
+│   ├── ssd_inference_example
+│   └── ssd_training_example
+├── keras_retinanet
+├── keras_ssd
+├── keras_yolov3
+├── res
+├── tests
+├── yolk
+├── .gitignore
+├── LICENSE
+├── README.md
+├── setup.cfg
+├── setup.py
 ```
 
 ## Installation (On Linux)
