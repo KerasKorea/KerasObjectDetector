@@ -19,12 +19,12 @@ The purpose of Keras Object Detection API is to make it easy and fast so that ev
 Detailed instructions for use will be updated at a later. You can look forward to it. 🤓
 
 ## Contents
-* [Directory Structure](##Directory-Structure)
-* [Installation](##Installation)
-* [Quick Start](##Quick-Start)
-* [Dependencies](##Dependencies)
-* [Release information](##Release-information)
-* [Contributors](##Contributors)
+* [Directory Structure](#Directory-Structure)
+* [Installation](#Installation)
+* [Quick Start](#Quick-Start)
+* [Dependencies](#Dependencies)
+* [Release information](#Release-information)
+* [Contributors](#Contributors)
 
 ## <a name="Directory Structure">Directory Structure</a> 
 <!--need to edit-->
