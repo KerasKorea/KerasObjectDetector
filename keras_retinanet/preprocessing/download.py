@@ -198,14 +198,20 @@ def config():
         'annotations2017.zip'
     ]
     filenames = image_filenames + annotation_filenames
-    return dataset_path, filenames, urls
+    hashes = [
+        '0ecc8a0261e22324480f711b057f649c',  # test2017.zip
+        'f3fc12b28bf54f2bb43e74fd9b36b046', # train2017.zip
+        '2094806510f0ef7c6989b2b3c75dae8c', # val2017.zip
+        '40148a3feb4b23e3681034c23f632819' # annotations2017.zip
+    ]
+    return dataset_path, filenames, urls, hashes
 
 
 """
 Download and Extract COCO Dataset
 """
 def download_coco():
-    dataset_path, filenames, urls = config()
+    dataset_path, filenames, urls, hashes = config()
  
     # clean and make directory before download datasets
     if os.path.exists(dataset_path):
@@ -216,7 +222,7 @@ def download_coco():
     os.makedirs(os.path.join(dataset_path, 'images'))
     os.makedirs(os.path.join(dataset_path, 'annotations'))
 
-    for filename, url in zip(filenames, urls):
+    for filename, url, hash_origin in zip(filenames, urls, hashes):
         filepath = os.path.join(dataset_path, filename)
         with open(filepath, "wb") as file:
             print("Downloading %s" % filepath)
@@ -234,11 +240,15 @@ def download_coco():
                     done = int(50 * dl / total_length)
                     sys.stdout.write("\r[%s%s]" % ('=' * done, ' ' * (50-done)) )
                 print()
-        sub_dir = os.path.join(dataset_path, 'images')
-        if 'annotations' in filename:
-            sub_dir = os.path.join(dataset_path, 'annotations')
-        with zipfile.ZipFile(filepath, 'r') as zf:
-            zf.extractall(sub_dir)
+        hash_downloaded = getHash(filepath)
+        if hash_downloaded != hash_origin:
+            print('ERROR: ' + filepath + ' file is crashed')
+        else: # Unzip zipfile after checking hash of the downloaded file
+            sub_dir = os.path.join(dataset_path, 'images')
+            if 'annotations' in filename:
+                sub_dir = os.path.join(dataset_path, 'annotations')
+            with zipfile.ZipFile(filepath, 'r') as zf:
+                zf.extractall(sub_dir)
 
 
 

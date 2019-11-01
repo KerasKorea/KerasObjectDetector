@@ -1,4 +1,5 @@
-# Keras RetinaNet [![Build Status](https://travis-ci.org/fizyr/keras-retinanet.svg?branch=master)](https://travis-ci.org/fizyr/keras-retinanet) [![DOI](https://zenodo.org/badge/100249425.svg)](https://zenodo.org/badge/latestdoi/100249425)
+# Keras Object Detection API
+
 
 _You Only Look Keras_ <img width="50" height="27" src="https://user-images.githubusercontent.com/23257678/65056804-81fdb180-d9ac-11e9-931b-d027649c67cc.png" alt="">
 
@@ -9,8 +10,7 @@ _You Only Look Keras_ <img width="50" height="27" src="https://user-images.githu
 [![KerasKorea](https://img.shields.io/badge/2019-Contributhon-green.svg)](https://www.kosshackathon.kr/)
 
 <p align="center">
-  <img width="509" height="276" src="
-./res/YOLKteam_object_dection.png" alt="">
+  <img width="509" height="276" src="https://github.com/KerasKorea/KerasObjectDetector/blob/develop/res/YOLKteam_object_dection.png?raw=true" alt="">
 </p>
 <p align="center">
 
@@ -72,7 +72,7 @@ First, [Download YOLK API](https://github.com/KerasKorea/KerasObjectDetector) th
   $ python setup.py install
 ```
 
-If you want to running on Docker, Get Docker Image we made and easily configure development environment.(Later, It will be upload on Docker Hub)
+If you want to running on Docker, Download Docker Image, which we made, from Docker HUB and easily configure development environment.
 
 ```bash
   #  pull yolk docker image
@@ -112,7 +112,7 @@ Finally, API that can detect multiple objects in keras has been completed!! Ther
 
 1. A three of object detetion model and a data generator that changes in a suitable data format for selected model. 
     - Object Detection Models : [SSD](https://github.com/pierluigiferrari/ssd_keras), [YOLOv3](https://github.com/qqwweee/keras-yolo3), [RetinaNet](https://github.com/fizyr/keras-retinanet)
-    - Dataset and data generator : [PASCAL VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/), [COCO](http://cocodataset.org/#home), [Custom dataset]()  <!--need to description-->
+    - Dataset and data generator : [PASCAL VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/), [COCO](http://cocodataset.org/#home), [Custom dataset]()  <!--need to description-->  
       ㄴ Yolk's dataset downloader is 3X faster than existing downloader.
 2. Docker files that help to set up easliy development environment.
 3. Easy & Detail Obejct Detection Tutorial (SSD+VOC2012)

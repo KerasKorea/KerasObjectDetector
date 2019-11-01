@@ -22,6 +22,8 @@ from keras_ssd.data_generator.object_detection_2d_photometric_ops import Convert
 from keras_ssd.data_generator.data_augmentation_chain_original_ssd import SSDDataAugmentation
 from keras_ssd.data_generator.object_detection_2d_misc_utils import apply_inverse_transforms
 
+from matplotlib import pyplot as plt
+
 img_height = 300
 img_width = 300
 img_channels = 3
@@ -84,12 +86,10 @@ def get_losses(args):
     ssd_loss = SSDLoss(neg_pos_ratio=3, alpha=1.0)
     return ssd_loss.compute_loss
 
-def preprocess_image(img_path, args):
-    orig_images = []
+def preprocess_image(img_path, *args):
     input_images = []
     img_height, img_width = 300, 300
 
-    orig_images.append(imread(img_path))
     img = image.load_img(img_path, target_size=(img_height, img_width))
     img = image.img_to_array(img)
     input_images.append(img)
@@ -226,3 +226,29 @@ def create_generators(args):
     val_steps = ceil(val_dataset_size/batch_size)
 
     return train_generator, callbacks, val_generator, val_steps
+
+def show_result(img_path, y_pred_thresh, args):
+    orig_images = [] # Store the images here.
+    orig_images.append(imread(img_path))
+
+    colors = plt.cm.hsv(np.linspace(0, 1, 21)).tolist()
+    classes = ['background',
+            'aeroplane', 'bicycle', 'bird', 'boat',
+            'bottle', 'bus', 'car', 'cat',
+            'chair', 'cow', 'diningtable', 'dog',
+            'horse', 'motorbike', 'person', 'pottedplant',
+            'sheep', 'sofa', 'train', 'tvmonitor']
+    plt.figure(figsize=(20,12))
+    plt.imshow(orig_images[0])
+    current_axis = plt.gca()
+    for box in y_pred_thresh[0]:
+        # Transform the predicted bounding boxes for the 300x300 image to the original image dimensions.
+        xmin = box[2] * orig_images[0].shape[1] / img_width
+        ymin = box[3] * orig_images[0].shape[0] / img_height
+        xmax = box[4] * orig_images[0].shape[1] / img_width
+        ymax = box[5] * orig_images[0].shape[0] / img_height
+        color = colors[int(box[0])]
+        label = '{}: {:.2f}'.format(classes[int(box[0])], box[1])
+        current_axis.add_patch(plt.Rectangle((xmin, ymin), xmax-xmin, ymax-ymin, color=color, fill=False, linewidth=2))
+        current_axis.text(xmin, ymin, label, size='x-large', color='white', bbox={'facecolor':color, 'alpha':1.0})
+    plt.show()
