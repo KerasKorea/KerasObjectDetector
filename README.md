@@ -1,4 +1,4 @@
-# Keras Object Detection API
+# YOLK: Keras Object Detection API
 
 
 _You Only Look Keras_ <img width="50" height="27" src="https://user-images.githubusercontent.com/23257678/65056804-81fdb180-d9ac-11e9-931b-d027649c67cc.png" alt="">
@@ -14,9 +14,9 @@ _You Only Look Keras_ <img width="50" height="27" src="https://user-images.githu
 </p>
 <p align="center">
 
-As a 2019 Open Source Countibuthon Project, we create Kears Object Detection API.  
-The purpose of Keras Object Detection API is to make it easy and fast so that everyone can create their own Object Detection model without difficulty.
-Detailed instructions for use will be updated at a later. You can look forward to it. 🤓
+Every year newly developed Object Detection architectures are introduced, but even applying the simplest ones has been something with, or perhaps more than, a big hassle so far. **YOLK**<sub>You Look Only Keras</sub> is an one-stop Object Detection API for **Keras**, which is built as a part of [2019 Open Source Contributhon](https://www.oss.kr/contributhon_overview). It shares the idea of what Keras is created for: *Being able to go from idea to result with the least possible delay is key to doing good research.* With a few lines of codes, you can set up and apply one of the best performing models to your own datasets. We hope this can help everyone train their own Object Detection models painlessly.  
+
+Detailed instructions will be updated soon.🤓
 
 ## Contents
 * [Directory Structure](#Directory-Structure)
@@ -54,30 +54,30 @@ KerasObjectDetector
 ```
 
 ## <a name="Installation">Installation (On Linux)</a> 
-First, [Download YOLK API](https://github.com/KerasKorea/KerasObjectDetector) that help to set up development environment for working on object detection. Enter the following command in terminal.
+[Download YOLK API](https://github.com/KerasKorea/KerasObjectDetector). This API helps setting up development environment for Object Detection tasks. Run the following commands in terminal.
 
 ```bash
   # Download YOLK API
   $ git clone https://github.com/KerasKorea/KerasObjectDetector.git
   $ cd KerasObjectDetector
 
-  # If there is no 'setuptools' in docker, please download This package.
+  # If there is no 'setuptools' in docker, please download this package.
   # pip install setuptools
   # install library
   $ apt-get install libatlas-base-dev libxml2-dev libxslt-dev python-tk
   
-  # build setup code
+  # build setup codes
   # ./KerasObjectDetector
   $ python setup.py install
 ```
 
-If you want to running on Docker, Download Docker Image, which we made, from Docker HUB and easily configure development environment.
+If you want to run the API on a docker, download our pre-built docker image from Docker HUB and run. 
 
 ```bash
   #  pull yolk docker image
   $ docker pull kerasyolk/yolk
 
-  # yolk run
+  # run yolk
   $ docker run --name=yolk -Pit -p 8888:8888 -p 8022:22 kerasyolk/yolk:latest
 
   # running jupyter-notebook
@@ -86,7 +86,7 @@ If you want to running on Docker, Download Docker Image, which we made, from Doc
 
 ## <a name="Quick-Start">Quick Start</a> 
 <!-- used by inference -->
-You can test your image a [Quick Start](https://github.com/KerasKorea/KerasObjectDetector/blob/develop/SSD_inference.ipynb) :)
+You can test your own image with a [Quick Start](https://github.com/KerasKorea/KerasObjectDetector/blob/develop/SSD_inference.ipynb) :)
 
 ## <a name="Dependencies">Dependencies</a> 
 |Name|Version(Min)|
@@ -107,14 +107,14 @@ You can test your image a [Quick Start](https://github.com/KerasKorea/KerasObjec
 
 ## <a name="Release-information">Release information</a> 
 #### ver 1.0.0 (November 20, 2019) 
-Finally, API that can detect multiple objects in keras has been completed!! There are still many things to supply, but we plan to continue to update. This release includes: 
+Finally the initial version of YOLK API has been completed!! There are still a long way to go, and more models will be continuously updated. This release includes: 
 
-1. A three of object detetion model and a data generator that changes in a suitable data format for selected model. 
-    - Object Detection Models : [SSD](https://github.com/pierluigiferrari/ssd_keras), [YOLOv3](https://github.com/qqwweee/keras-yolo3), [RetinaNet](https://github.com/fizyr/keras-retinanet)
+1. Three Object Detection models and one data generator. The generator converts datasets into a suitable format for a selected model. 
+    - Object Detection models : [SSD](https://github.com/pierluigiferrari/ssd_keras), [YOLOv3](https://github.com/qqwweee/keras-yolo3), [RetinaNet](https://github.com/fizyr/keras-retinanet)
     - Dataset and data generator : [PASCAL VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/), [COCO](http://cocodataset.org/#home), [Custom dataset]()  <!--need to description-->  
-      ㄴ Yolk's dataset downloader is 3X faster than existing downloader.
-2. Docker files that help to set up easliy development environment.
-3. Easy & Detail Obejct Detection Tutorial (SSD+VOC2012)
+      ㄴ Yolk's dataset downloader is 3X faster than existing downloaders.
+2. Docker files for quick development environment setup.
+3. Easy and detailed Object Detection tutorials (SSD+VOC2012).
 
 ## <a name="Contributors">Contributors</a> 
 Thanks goes to these beautiful peaple (github ID) :
