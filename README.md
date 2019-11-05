@@ -107,7 +107,7 @@ You can test your own image with a [Quick Start](https://github.com/KerasKorea/K
 
 ## <a name="Release-information">Release information</a> 
 #### ver 1.0.0 (November 20, 2019) 
-Finally the initial version of YOLK API has been completed!! There are still a long way to go, and more models will be continuously updated. This release includes: 
+Finally the initial version of YOLK API has been completed!! There's still a long way to go, and more models will be continuously updated. This release includes: 
 
 1. Three Object Detection models and one data generator. The generator converts datasets into a suitable format for a selected model. 
     - Object Detection models : [SSD](https://github.com/pierluigiferrari/ssd_keras), [YOLOv3](https://github.com/qqwweee/keras-yolo3), [RetinaNet](https://github.com/fizyr/keras-retinanet)
