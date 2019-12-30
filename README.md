@@ -107,9 +107,9 @@ You can test your own image with a [Quick Start](https://github.com/KerasKorea/K
 
 ## <a name="Release-information">Release information</a> 
 #### ver 1.0.0 (November 20, 2019) 
-Finally the initial version of YOLK API has been completed!! There's still a long way to go, and more models will be continuously updated. This release includes: 
+The initial version of YOLK API has been completed. This release includes: 
 
-1. Three Object Detection models and one data generator. The generator converts datasets into a suitable format for a selected model. 
+1. Three Object Detection models and one data generator. (More models will be included in a future version). The generator converts datasets into a suitable format for a selected model. 
     - Object Detection models : [SSD](https://github.com/pierluigiferrari/ssd_keras), [YOLOv3](https://github.com/qqwweee/keras-yolo3), [RetinaNet](https://github.com/fizyr/keras-retinanet)
     - Dataset and data generator : [PASCAL VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/), [COCO](http://cocodataset.org/#home), [Custom dataset]()  <!--need to description-->  
       ㄴ Yolk's dataset downloader is 3X faster than existing downloaders.
@@ -117,5 +117,5 @@ Finally the initial version of YOLK API has been completed!! There's still a lon
 3. Easy and detailed Object Detection tutorials (SSD+VOC2012).
 
 ## <a name="Contributors">Contributors</a> 
-Thanks goes to these beautiful peaple (github ID) :
+Thanks goes to these beautiful people (github ID) :
 [@fuzzythecat](https://github.com/fuzzythecat), [@mijeongjeon](https://github.com/mijeongjeon), [@tykimos](https://github.com/tykimos), [@SooDevv](https://github.com/SooDevv), [@karl6885](https://github.com/karl6885), [@EthanJYK](https://github.com/EthanJYK), [@minus31](https://github.com/minus31), [@young917](https://github.com/young917), [@mike2ox](https://github.com/mike2ox), [@hngskj](https://github.com/hngskj), [@hics33](https://github.com/hics33), [@aaajeong](https://github.com/aaajeong), [@parkjh688](https://github.com/parkjh688), [@Uwonsang](https://github.com/Uwonsang), [@simba328](https://github.com/simba328), [@visionNoob](https://github.com/visionNoob), [@Naruu](https://github.com/Naruu), [@melonicedlatte](https://github.com/melonicedlatte), [@magh0](https://github.com/magh0), [@ahracho](https://github.com/ahracho)
