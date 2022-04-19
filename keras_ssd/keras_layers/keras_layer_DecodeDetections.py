@@ -171,7 +171,7 @@ class DecodeDetections(Layer):
                 # a tensor of shape (n_boxes, 1 + 4 coordinates) that contains the
                 # confidnece values for just one class, determined by `index`.
                 confidences = tf.expand_dims(batch_item[..., index], axis=-1)
-                class_id = tf.fill(dims=tf.shape(confidences), value=tf.to_float(index))
+                class_id = tf.fill(dims=tf.shape(confidences), value=tf.cast(index, tf.float32))
                 box_coordinates = batch_item[...,-4:]
 
                 single_class = tf.concat([class_id, confidences, box_coordinates], axis=-1)

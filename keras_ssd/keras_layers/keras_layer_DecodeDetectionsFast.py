@@ -123,7 +123,7 @@ class DecodeDetectionsFast(Layer):
         #####################################################################################
 
         # Extract the predicted class IDs as the indices of the highest confidence values.
-        class_ids = tf.expand_dims(tf.to_float(tf.argmax(y_pred[...,:-12], axis=-1)), axis=-1)
+        class_ids = tf.expand_dims(tf.cast(tf.argmax(y_pred[...,:-12], axis=-1), tf.float32), axis=-1)
         # Extract the confidences of the maximal classes.
         confidences = tf.reduce_max(y_pred[...,:-12], axis=-1, keep_dims=True)
 
