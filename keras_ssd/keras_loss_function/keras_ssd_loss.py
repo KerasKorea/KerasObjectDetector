@@ -131,7 +131,7 @@ class SSDLoss:
         # 1: Compute the losses for class and box predictions for every box.
 
         classification_loss = tf.cast(self.log_loss(y_true[:,:,:-12], y_pred[:,:,:-12]), tf.float32) # Output shape: (batch_size, n_boxes)
-        localization_loss = tf.cast(self.smooth_L1_loss(y_true[:,:,-12:-8], y_pred[:,:,-12:-8], tf.float32)) # Output shape: (batch_size, n_boxes)
+        localization_loss = tf.cast(self.smooth_L1_loss(y_true[:,:,-12:-8], y_pred[:,:,-12:-8]), tf.float32) # Output shape: (batch_size, n_boxes)
 
         # 2: Compute the classification losses for the positive and negative targets.
 
