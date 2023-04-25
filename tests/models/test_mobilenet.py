@@ -51,6 +51,6 @@ def test_backbone(backbone, alpha):
             'regression': losses.smooth_l1(),
             'classification': losses.focal()
         },
-        optimizer=keras.optimizers.adam(lr=1e-5, clipnorm=0.001))
+        optimizer=keras.optimizers.adam(learning_rate=1e-5, clipnorm=0.001))
 
     training_model.fit(inputs, targets, batch_size=1)

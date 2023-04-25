@@ -21,8 +21,9 @@ from __future__ import division
 import numpy as np
 import tensorflow as tf
 import keras.backend as K
-from keras.engine.topology import InputSpec
-from keras.engine.topology import Layer
+#from keras.engine.topology import InputSpec
+#from keras.engine.topology import Layer
+from keras.layers import InputSpec, Layer
 
 class DecodeDetections(Layer):
     '''
@@ -171,7 +172,7 @@ class DecodeDetections(Layer):
                 # a tensor of shape (n_boxes, 1 + 4 coordinates) that contains the
                 # confidnece values for just one class, determined by `index`.
                 confidences = tf.expand_dims(batch_item[..., index], axis=-1)
-                class_id = tf.fill(dims=tf.shape(confidences), value=tf.to_float(index))
+                class_id = tf.fill(dims=tf.shape(confidences), value=tf.cast(index, tf.float32))
                 box_coordinates = batch_item[...,-4:]
 
                 single_class = tf.concat([class_id, confidences, box_coordinates], axis=-1)
@@ -216,14 +217,15 @@ class DecodeDetections(Layer):
                 return padded_single_class
 
             # Iterate `filter_single_class()` over all class indices.
-            filtered_single_classes = tf.map_fn(fn=lambda i: filter_single_class(i),
-                                                elems=tf.range(1,n_classes),
-                                                dtype=tf.float32,
-                                                parallel_iterations=128,
-                                                back_prop=False,
-                                                swap_memory=False,
-                                                infer_shape=True,
-                                                name='loop_over_classes')
+            filtered_single_classes = tf.nest.map_structure(
+                tf.stop_gradient,
+                tf.map_fn(fn=lambda i: filter_single_class(i),
+                          elems=tf.range(1,n_classes),
+                          fn_output_signature=tf.float32,
+                          parallel_iterations=128,
+                          swap_memory=False,
+                          infer_shape=True,
+                          name='loop_over_classes'))
 
             # Concatenate the filtered results for all individual classes to one tensor.
             filtered_predictions = tf.reshape(tensor=filtered_single_classes, shape=(-1,6))
@@ -253,14 +255,15 @@ class DecodeDetections(Layer):
             return top_k_boxes
 
         # Iterate `filter_predictions()` over all batch items.
-        output_tensor = tf.map_fn(fn=lambda x: filter_predictions(x),
-                                  elems=y_pred,
-                                  dtype=None,
-                                  parallel_iterations=128,
-                                  back_prop=False,
-                                  swap_memory=False,
-                                  infer_shape=True,
-                                  name='loop_over_batch')
+        output_tensor = tf.nest.map_structure(
+            tf.stop_gradient,
+            tf.map_fn(fn=lambda x: filter_predictions(x),
+                      elems=y_pred,
+                      fn_output_signature=None,
+                      parallel_iterations=128,
+                      swap_memory=False,
+                      infer_shape=True,
+                      name='loop_over_batch'))
 
         return output_tensor
 

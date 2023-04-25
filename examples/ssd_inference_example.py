@@ -20,7 +20,7 @@ def main(args=None):
     model_path = './VGG_VOC0712Plus_SSD_300x300_ft_iter_160000.h5'
     model = yolk.detector.load_inference_model(model_path, args)
     loss = yolk.detector.get_losses(args)
-    sgd = SGD(lr=0.001, momentum=0.9, decay=0.0, nesterov=False)
+    sgd = SGD(learning_rate=0.001, momentum=0.9, decay=0.0, nesterov=False)
     model.compile(optimizer=sgd, loss=loss)
 
 

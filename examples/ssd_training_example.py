@@ -15,7 +15,7 @@ def main(args=None):
     # Make a Model
     model = yolk.detector.load_training_model(20, args)
     loss = yolk.detector.get_losses(args)
-    sgd = SGD(lr=0.001, momentum=0.9, decay=0.0, nesterov=False)
+    sgd = SGD(learning_rate=0.001, momentum=0.9, decay=0.0, nesterov=False)
     model.compile(optimizer=sgd, loss=loss)
 
     # Load Generators

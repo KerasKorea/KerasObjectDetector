@@ -21,7 +21,7 @@ def main(args=None):
 
     model.compile(
         loss=yolk.detector.get_losses(args),
-        optimizer=keras.optimizers.adam(lr=args.lr, clipnorm=0.001)
+        optimizer=keras.optimizers.adam(learning_rate=args.lr, clipnorm=0.001)
     )
 
     model.fit_generator(
