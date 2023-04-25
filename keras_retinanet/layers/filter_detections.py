@@ -175,7 +175,7 @@ class FilterDetections(keras.layers.Layer):
         outputs = backend.map_fn(
             _filter_detections,
             elems=[boxes, classification, other],
-            dtype=[keras.backend.floatx(), keras.backend.floatx(), 'int32'] + [o.dtype for o in other],
+            fn_output_signature=[keras.backend.floatx(), keras.backend.floatx(), 'int32'] + [o.dtype for o in other],
             parallel_iterations=self.parallel_iterations
         )
 

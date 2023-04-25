@@ -23,8 +23,9 @@ from __future__ import division
 import numpy as np
 import tensorflow as tf
 import keras.backend as K
-from keras.engine.topology import InputSpec
-from keras.engine.topology import Layer
+#from keras.engine.topology import InputSpec
+#from keras.engine.topology import Layer
+from keras.layers import InputSpec, Layer
 
 class DecodeDetectionsFast(Layer):
     '''
@@ -236,14 +237,15 @@ class DecodeDetectionsFast(Layer):
             return top_k_boxes
 
         # Iterate `filter_predictions()` over all batch items.
-        output_tensor = tf.map_fn(fn=lambda x: filter_predictions(x),
-                                  elems=y_pred,
-                                  dtype=None,
-                                  parallel_iterations=128,
-                                  back_prop=False,
-                                  swap_memory=False,
-                                  infer_shape=True,
-                                  name='loop_over_batch')
+        output_tensor = tf.nest.map_structure(
+            tf.stop_gradient,
+            tf.map_fn(fn=lambda x: filter_predictions(x),
+                      elems=y_pred,
+                      fn_output_signature=None,
+                      parallel_iterations=128,
+                      swap_memory=False,
+                      infer_shape=True,
+                      name='loop_over_batch'))
 
         return output_tensor
 

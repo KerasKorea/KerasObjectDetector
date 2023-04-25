@@ -29,7 +29,7 @@ with open(annotation_path) as f:
 num_train = len(lines)
 batch_size = 32
 
-yolov3.model.compile(optimizer=Adam(lr=1e-3), loss={'yolo_loss': lambda y_true, y_pred: y_pred})
+yolov3.model.compile(optimizer=Adam(learning_rate=1e-3), loss={'yolo_loss': lambda y_true, y_pred: y_pred})
 
 yolov3.model.fit_generator(data_generator_wrapper(lines, batch_size, yolov3.input_shape, anchors, num_classes),
                 steps_per_epoch=max(1, num_train // batch_size),

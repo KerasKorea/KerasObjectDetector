@@ -4,7 +4,8 @@ from math import ceil
 
 import keras_ssd
 from keras import models
-from keras.preprocessing import image
+#from keras.preprocessing import image
+from keras.utils import image_utils as image
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler, TerminateOnNaN, CSVLogger
 
 from keras_ssd.models.keras_ssd300 import ssd_300
